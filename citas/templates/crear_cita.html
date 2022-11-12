@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+    <main class="container">
+
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+
+                
+
+                
+                <form action="/citas/crear/" method="POST" class="card card-body">
+                    <h1>Reserva de cita</h1>
+                    {{error}}
+
+                    {% csrf_token %}
+                    
+                    <select name="especialidad" id="especialidad">
+                        {% for especialidad in especialidades %}
+                        <option>
+
+                            {{ especialidad.Nombre_Especialidad}}
+
+                        </option>          
+                        {% endfor %}
+                    </select>
+                    
+                    {{form}}
+                    
+                    <button class="btn btn-primary mt-3">
+                        Guardar
+                    </button>
+            
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+{% endblock %}
